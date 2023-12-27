@@ -136,4 +136,6 @@ describe('Example Test', () => {
     cy.login(values.userName, values.pwd);
   });
 
+  // testing git actions
+
 });

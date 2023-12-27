@@ -97,14 +97,14 @@ describe('Example Test', () => {
 
   
 
-  xit('upload a file to application', () => {
+  it('upload a file to application', () => {
     cy.visit("https://the-internet.herokuapp.com/upload")
     cy.get('#file-upload').attachFile('testingCsvFile.csv')
     cy.wait(10000)
   // })
   })
   
-  xit('Read data from text file', () => {
+  it('Read data from text file', () => {
     cy.readFile('cypress/fixtures/textFile.txt').then((content) => {
       const lines = content.split('\n');
       const firstLine = lines[0].trim();
@@ -112,7 +112,7 @@ describe('Example Test', () => {
     });
   });
 
-  xit('Read specific values from a CSV file', () => {
+  it('Read specific values from a CSV file', () => {
     cy.readFile(csvFilePath).then((content) => {
       const value = content.split('\n').map(row => row.split(','));
       const expectedValue = value[1][0].trim(); // Assuming indexing is zero-based
@@ -120,7 +120,7 @@ describe('Example Test', () => {
     });
   });
 
-  xit('Create a CSV file and add values in it', () => {
+  it('Create a CSV file and add values in it', () => {
     const filePath = 'cypress/fixtures/writeFile.csv';
     const header = ['Name', 'Age', 'Country'];
     const values = [
@@ -132,7 +132,7 @@ describe('Example Test', () => {
     cy.writeFile(filePath, csvContent);
   });
 
-  xit('should log in with valid credentials', () => {
+  it('should log in with valid credentials', () => {
     cy.login(values.userName, values.pwd);
   });
 
